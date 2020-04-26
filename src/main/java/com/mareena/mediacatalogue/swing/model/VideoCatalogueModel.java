@@ -35,6 +35,16 @@ public final class VideoCatalogueModel extends AbstractListModel {
     setUsersMediaList();
   }
 
+  public Profile getCurrentUser() {
+    return currentUser;
+  }
+
+  public void setCurrentUser(Profile selectedUser) {
+    this.currentUser = selectedUser;
+    mediaTreeSet.clear();
+    setUsersMediaList();
+  }
+
   synchronized void setUsersMediaList() {
     mediaCatalogue.getFilms().stream()
         .filter(film -> film.getGenre().contains(currentUser.getPreferredGenre()))
@@ -60,11 +70,5 @@ public final class VideoCatalogueModel extends AbstractListModel {
     }
     System.out.println("Getting current index item: " + index + "item: " + mediaTreeSet.get(index));
     return mediaTreeSet.get(index);
-  }
-
-  public void setCurrentUser(Profile selectedUser) {
-    this.currentUser = selectedUser;
-    mediaTreeSet.clear();
-    setUsersMediaList();
   }
 }

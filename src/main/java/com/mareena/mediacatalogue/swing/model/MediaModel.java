@@ -35,4 +35,8 @@ public class MediaModel {
   public String getCastText() {
     return media.getActors().stream().map(People::toString).collect(Collectors.joining(""));
   }
+
+  public String getMediaNameAndGenre() {
+    return media.getTitle() + media.getGenre();
+  }
 }

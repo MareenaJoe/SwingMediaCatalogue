@@ -5,12 +5,10 @@ import com.mareena.mediacatalogue.model.json.Media;
 import com.mareena.mediacatalogue.model.json.MediaCatalogue;
 import com.mareena.mediacatalogue.model.json.Profile;
 import com.mareena.mediacatalogue.swing.model.BaseModel;
+import com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel;
 import com.mareena.mediacatalogue.swing.model.MediaModel;
 import com.mareena.mediacatalogue.swing.model.VideoCatalogueModel;
-import com.mareena.mediacatalogue.swing.view.AddItemView;
-import com.mareena.mediacatalogue.swing.view.ItemMediaView;
-import com.mareena.mediacatalogue.swing.view.SelectUserView;
-import com.mareena.mediacatalogue.swing.view.VideoCatalogue;
+import com.mareena.mediacatalogue.swing.view.*;
 
 import java.awt.*;
 
@@ -24,6 +22,8 @@ public final class VideoCatalogueController {
   ItemMediaView viewMediaView;
   AddItemView addItemView;
   SelectUserView selectUserView;
+  ListByYear listByYear;
+  ListByGenre listByGenre;
 
   // ListByYearView
   // ListByGenreView
@@ -45,6 +45,7 @@ public final class VideoCatalogueController {
     this.viewMediaView = new ItemMediaView();
     // set the jframe size and location, and make it visible
     viewMediaView.setPreferredSize(new Dimension(450, 550));
+    viewMediaView.setTitle("Media Details");
     viewMediaView.pack();
     viewMediaView.setLocationRelativeTo(null);
     viewMediaView.setVisible(false);
@@ -52,9 +53,24 @@ public final class VideoCatalogueController {
     this.selectUserView = new SelectUserView(new BaseModel(this));
     // set the jframe size and location, and make it visible
     selectUserView.setPreferredSize(new Dimension(250, 350));
+    selectUserView.setTitle("Select User Profile");
     selectUserView.pack();
     selectUserView.setLocationRelativeTo(null);
     selectUserView.setVisible(false);
+
+    this.listByYear = new ListByYear(new ListByYearAndGenreModel(mediaCatalogue, this));
+    listByYear.setPreferredSize(new Dimension(500, 600));
+    listByYear.setTitle("List by Year");
+    listByYear.pack();
+    listByYear.setLocationRelativeTo(null);
+    listByYear.setVisible(false);
+
+    this.listByGenre = new ListByGenre(new ListByYearAndGenreModel(mediaCatalogue, this));
+    listByGenre.setPreferredSize(new Dimension(500, 600));
+    listByGenre.setTitle("List by Genre");
+    listByGenre.pack();
+    listByGenre.setLocationRelativeTo(null);
+    listByGenre.setVisible(false);
   }
 
   /**
@@ -96,5 +112,13 @@ public final class VideoCatalogueController {
 
   public void actionSelectUserDisable() {
     selectUserView.setVisible(false);
+  }
+
+  public void actionEnableLIstByYear() {
+    listByYear.setVisible(true);
+  }
+
+  public void actionEnableLIstByGenre() {
+    listByGenre.setVisible(true);
   }
 }

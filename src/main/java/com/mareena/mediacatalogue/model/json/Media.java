@@ -109,6 +109,10 @@ public abstract class Media implements Comparable {
     return "" + title + "    " + year + "   " + getSeperatedGenres();
   }
 
+  public String toStringforListByYear() {
+    return "" + title + "\t" + getSeperatedGenres();
+  }
+
   String getSeperatedGenres() {
     String SEPERATOR = " | ";
     if (genres == null || genres.size() == 0) {

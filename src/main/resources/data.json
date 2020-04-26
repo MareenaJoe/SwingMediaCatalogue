@@ -67,6 +67,23 @@
         29
       ],
       "description": "The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home."
+    },
+    {
+      "fid": 5,
+      "title": "Once Upon a Time in Hollywood",
+      "year": 2019,
+      "genre": [
+        7,
+        5,
+        2
+      ],
+      "director": 30,
+      "cast": [
+        31,
+        32,
+        33
+      ],
+      "description": "In February 1969, veteran Hollywood actor Rick Dalton (DiCaprio), star of 1950s Western television series Bounty Law, fears his career is waning."
     }
   ],
   "tvseries": [
@@ -253,6 +270,22 @@
     {
       "pid": 29,
       "name": "Kristen Wiig"
+    },
+    {
+      "pid": 30,
+      "name": "Quentin Tarantino"
+    },
+    {
+      "pid": 31,
+      "name": "Brad Pitt"
+    },
+    {
+      "pid": 32,
+      "name": "Leonardo DiCaprio"
+    },
+    {
+      "pid": 33,
+      "name": "Margot Robbie"
     }
   ],
   "genres": [
