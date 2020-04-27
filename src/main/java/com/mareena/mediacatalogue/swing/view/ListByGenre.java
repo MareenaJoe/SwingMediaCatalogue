@@ -13,20 +13,20 @@ import com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel;
  */
 public class ListByGenre extends javax.swing.JFrame {
 
-  private final ListByYearAndGenreModel listByYearModel;
+  private final ListByYearAndGenreModel listByGenreModel;
 
   /**
    * Creates new form ListByYear
    * @param listByYearModel
    */
   public ListByGenre(ListByYearAndGenreModel listByYearModel) {
-    this.listByYearModel = listByYearModel;
+    this.listByGenreModel = listByYearModel;
     initComponents();
     setData();
   }
 
   private void setData() {
-    jTextArea1.setText(listByYearModel.getMediaByGenre());
+    jTextArea1.setText(listByGenreModel.getMediaByGenre());
   }
 
 
@@ -43,7 +43,6 @@ public class ListByGenre extends javax.swing.JFrame {
     jScrollPane1 = new javax.swing.JScrollPane();
     jTextArea1 = new javax.swing.JTextArea();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     getContentPane().setLayout(null);
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

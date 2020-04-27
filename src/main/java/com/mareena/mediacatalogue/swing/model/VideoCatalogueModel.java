@@ -14,7 +14,7 @@ public final class VideoCatalogueModel extends AbstractListModel {
   final VideoCatalogueController videoCatalogueController;
   final MediaCatalogue mediaCatalogue;
   Profile currentUser;
-  List<Media> mediaTreeSet = new ArrayList<>();
+  List<Media> mediaList = new ArrayList<>();
   private int listCount = 4;
 
   public VideoCatalogueModel(
@@ -41,20 +41,20 @@ public final class VideoCatalogueModel extends AbstractListModel {
 
   public void setCurrentUser(Profile selectedUser) {
     this.currentUser = selectedUser;
-    mediaTreeSet.clear();
+    mediaList.clear();
     setUsersMediaList();
   }
 
   synchronized void setUsersMediaList() {
     mediaCatalogue.getFilms().stream()
         .filter(film -> film.getGenre().contains(currentUser.getPreferredGenre()))
-        .forEach(item -> mediaTreeSet.add(item));
+        .forEach(item -> mediaList.add(item));
     mediaCatalogue.getTvseries().stream()
         .filter(tvSeries -> tvSeries.getGenre().contains(currentUser.getPreferredGenre()))
-        .forEach(item -> mediaTreeSet.add(item));
+        .forEach(item -> mediaList.add(item));
     System.out.println("Media List ");
-    mediaTreeSet.forEach(System.out::println);
-    listCount = mediaTreeSet.size();
+    mediaList.forEach(System.out::println);
+    listCount = mediaList.size();
     System.out.println("Current count: " + listCount);
   }
 
@@ -68,7 +68,7 @@ public final class VideoCatalogueModel extends AbstractListModel {
     if (index > listCount) {
       return "";
     }
-    System.out.println("Getting current index item: " + index + "item: " + mediaTreeSet.get(index));
-    return mediaTreeSet.get(index);
+    System.out.println("Getting current index item: " + index + "item: " + mediaList.get(index));
+    return mediaList.get(index);
   }
 }

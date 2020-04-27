@@ -26,6 +26,7 @@ public class ListByYearAndGenreModel {
     Map<Integer, List<Media>> mediaMap = new HashMap<>();
     //    mediaCatalogue.getFilms().forEach(film -> processItem(film, mediaMap));
     for (Film film : mediaCatalogue.getFilms()) {
+      // mediaList, alist for storing films and tvseries
       List<Media> mediaList = mediaMap.get(film.getYear());
       if (mediaList == null) {
         List<Media> filmList = new ArrayList<>();
@@ -65,6 +66,37 @@ public class ListByYearAndGenreModel {
   }
 
   public String getMediaByGenre() {
-    return "empty";
+
+    Map<String, List<Media>> genreMediaMap = new HashMap<>();
+
+    // Populate genreMediaMap with keys containing all known genre strings & empty arraylist of
+    // type media. The arrayLists will be populated later
+    mediaCatalogue
+        .getGenres()
+        .forEach(genre -> genreMediaMap.put(genre.getGenre(), new ArrayList<Media>()));
+    for (Film film : mediaCatalogue.getFilms()) {
+      // traversing through string list of genres in film.
+      // Get the arraylist for the genre currently being traversed and add the current
+      // film to the list.
+      // So each film gets added to 2 or more list
+      film.getGenres().forEach(genre -> genreMediaMap.get(genre.getGenre()).add(film));
+    }
+    for (TVSeries tvSeries : mediaCatalogue.getTvseries()) {
+      // Same logic as above
+      tvSeries.getGenres().forEach(genre -> genreMediaMap.get(genre.getGenre()).add(tvSeries));
+    }
+    String finalString = "";
+    for (Map.Entry<String, List<Media>> entry : genreMediaMap.entrySet()) {
+      finalString =
+          finalString
+              + entry.getKey()
+              + "\n"
+              + entry.getValue().stream()
+                  .map(Media::toStringforListByGenre)
+                  .collect(Collectors.joining("\n"))
+              + "\n"
+              + "\n";
+    }
+    return finalString;
   }
 }

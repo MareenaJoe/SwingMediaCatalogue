@@ -46,6 +46,7 @@ public class VideoCatalogue extends javax.swing.JFrame {
     jScrollPane2 = new javax.swing.JScrollPane();
     jList1 = new javax.swing.JList<>();
     jTextField1 = new javax.swing.JTextField();
+    jTextField1.setText(videoCatalogueModel.getCurrentUser().getName());
 
     menu1.setLabel("File");
     menuBar1.add(menu1);
@@ -106,11 +107,7 @@ public class VideoCatalogue extends javax.swing.JFrame {
     jLabel1.setForeground(new java.awt.Color(236, 240, 241));
     jLabel1.setText("User Profile: ");
 
-    jList1.setModel(new javax.swing.AbstractListModel<String>() {
-      String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-      public int getSize() { return strings.length; }
-      public String getElementAt(int i) { return strings[i]; }
-    });
+    jList1.setModel(videoCatalogueModel);
     jList1.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
         jList1MouseClicked(evt);
