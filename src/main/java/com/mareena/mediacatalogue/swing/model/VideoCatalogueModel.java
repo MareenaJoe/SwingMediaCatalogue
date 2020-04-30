@@ -8,6 +8,7 @@ import com.mareena.mediacatalogue.model.json.Profile;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class VideoCatalogueModel extends AbstractListModel {
 
@@ -50,12 +51,14 @@ public final class VideoCatalogueModel extends AbstractListModel {
    * added a new media title in state model)
    */
   public synchronized void setUsersMediaList() {
-    mediaCatalogue.getFilms().stream()
-        .filter(film -> film.getGenre().contains(currentUser.getPreferredGenre()))
-        .forEach(item -> mediaList.add(item));
-    mediaCatalogue.getTvseries().stream()
-        .filter(tvSeries -> tvSeries.getGenre().contains(currentUser.getPreferredGenre()))
-        .forEach(item -> mediaList.add(item));
+    mediaList.addAll(
+        mediaCatalogue.getFilms().stream()
+            .filter(film -> film.getGenre().contains(currentUser.getPreferredGenre()))
+            .collect(Collectors.toList()));
+    mediaList.addAll(
+        mediaCatalogue.getTvseries().stream()
+            .filter(tvSeries -> tvSeries.getGenre().contains(currentUser.getPreferredGenre()))
+            .collect(Collectors.toList()));
     System.out.println("Media List ");
     mediaList.forEach(System.out::println);
     listCount = mediaList.size();

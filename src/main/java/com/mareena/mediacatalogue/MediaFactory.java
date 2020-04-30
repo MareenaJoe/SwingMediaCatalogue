@@ -1,12 +1,16 @@
 package com.mareena.mediacatalogue;
 
-import com.mareena.mediacatalogue.model.json.*;
+import com.mareena.mediacatalogue.model.json.Film;
+import com.mareena.mediacatalogue.model.json.Genre;
+import com.mareena.mediacatalogue.model.json.People;
+import com.mareena.mediacatalogue.model.json.TVSeries;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MediaFactory {
 
-  public static Media createMedia(
+  public static void createMedia(
       String title,
       String year,
       String castList,
@@ -18,16 +22,33 @@ public class MediaFactory {
     Set<Genre> genreSet = getGenres(genreList);
     Set<People> castSet = getCast(castList);
     Integer yearInt = getYear(year);
-    Media media = null;
+
     MediaCatalogueStateModel mediaCatalogueStateModel = MediaCatalogueStateModel.getInstance();
     if (isTvSeries) {
-      media = new TVSeries(title, yearInt, description, directorObj, genreSet, castSet);
-      mediaCatalogueStateModel.getCatalogue().getTvseries().add((TVSeries) media);
+      TVSeries media =
+          new TVSeries(
+              title,
+              yearInt,
+              description,
+              directorObj,
+              genreSet,
+              castSet,
+              getGenre(genreSet),
+              getCast(castSet));
+      mediaCatalogueStateModel.getCatalogue().getTvseries().add(media);
     } else {
-      media = new Film(title, yearInt, description, directorObj, genreSet, castSet);
-      mediaCatalogueStateModel.getCatalogue().getFilms().add((Film) media);
+      Film media =
+          new Film(
+              title,
+              yearInt,
+              description,
+              directorObj,
+              genreSet,
+              castSet,
+              getGenre(genreSet),
+              getCast(castSet));
+      mediaCatalogueStateModel.getCatalogue().getFilms().add(media);
     }
-    return media;
   }
 
   private static int getYear(String year) {
@@ -45,6 +66,14 @@ public class MediaFactory {
       castSet.add(getArtist(cast));
     }
     return castSet;
+  }
+
+  private static Set<Integer> getCast(Set<People> castSet) {
+    return castSet.stream().map(People::getPid).collect(Collectors.toSet());
+  }
+
+  private static Set<Integer> getGenre(Set<Genre> genreSet) {
+    return genreSet.stream().map(Genre::getGid).collect(Collectors.toSet());
   }
 
   private static Set<Genre> getGenres(String genresList) {

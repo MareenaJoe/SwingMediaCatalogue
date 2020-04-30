@@ -6,10 +6,7 @@ import com.mareena.mediacatalogue.model.json.Media;
 import com.mareena.mediacatalogue.model.json.MediaCatalogue;
 import com.mareena.mediacatalogue.model.json.TVSeries;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ListByYearAndGenreModel {
@@ -23,7 +20,7 @@ public class ListByYearAndGenreModel {
   }
 
   public String getMediaByYear() {
-    Map<Integer, List<Media>> mediaMap = new HashMap<>();
+    Map<Integer, List<Media>> mediaMap = new TreeMap<>();
     //    mediaCatalogue.getFilms().forEach(film -> processItem(film, mediaMap));
     for (Film film : mediaCatalogue.getFilms()) {
       // mediaList, a list for storing films and tvseries
@@ -32,6 +29,7 @@ public class ListByYearAndGenreModel {
         List<Media> filmList = new ArrayList<>();
         filmList.add(film);
         mediaMap.put(film.getYear(), filmList);
+        System.out.println("MediaMap keySet: " + mediaMap.keySet());
       } else {
         mediaList.add(film);
       }

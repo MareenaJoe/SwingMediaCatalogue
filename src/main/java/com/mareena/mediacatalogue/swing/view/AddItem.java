@@ -219,26 +219,19 @@ public class AddItem extends javax.swing.JFrame {
     }//GEN-LAST:event_titleTextFieldActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        Media media = buildMediaAndUpdateModel();
-        System.out.println("Created new media model: " +media);
+        MediaFactory.createMedia(
+              titleTextField.getText(),
+              yearCombo.getSelectedItem().toString(),
+              castTextArea.getText(),
+              genreTextArea.getText(),
+              directorTextArea.getText(),
+              descriptionTextArea.getText(),
+              tvSeriesCheckBox.getState()
+        );
         baseModel.getVideoCatalogueController().actionAddNewMedia();
         baseModel.getVideoCatalogueController().actionAddMediaItemDisable();
     }//GEN-LAST:event_saveButtonActionPerformed
 
-  /**
-   * Add new media object & update it to the media state model by calling the factory
-   * @return
-   */
-    private Media buildMediaAndUpdateModel() {
-      Media media = MediaFactory.createMedia(titleTextField.getText(),
-              yearCombo.getSelectedItem().toString(),
-              castTextArea.getText(),genreTextArea.getText(),
-              directorTextArea.getText(),
-              descriptionTextArea.getText(),
-              tvSeriesCheckBox.getState()
-              );
-      return media;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JTextArea castTextArea;

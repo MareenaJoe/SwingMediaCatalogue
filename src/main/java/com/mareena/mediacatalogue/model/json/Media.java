@@ -1,14 +1,13 @@
 package com.mareena.mediacatalogue.model.json;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public abstract class Media implements Comparable {
   // For JSON model
   protected String title;
   protected Integer year;
-  protected List<Integer> genre;
+  protected Set<Integer> genre;
   protected Set<Integer> cast;
   protected String description;
 
@@ -35,11 +34,11 @@ public abstract class Media implements Comparable {
     this.year = year;
   }
 
-  public List<Integer> getGenre() {
+  public Set<Integer> getGenre() {
     return genre;
   }
 
-  public void setGenre(List<Integer> genre) {
+  public void setGenre(Set<Integer> genre) {
     this.genre = genre;
   }
 
@@ -111,7 +110,7 @@ public abstract class Media implements Comparable {
   }
 
   public String toStringforListByYear() {
-    return "" + title + "\t\t\t\t" + getSeperatedGenres();
+    return "" + title + "\t" + getSeperatedGenres();
   }
 
   String getSeperatedGenres() {
@@ -129,6 +128,6 @@ public abstract class Media implements Comparable {
   }
 
   public String toStringforListByGenre() {
-    return title + "\t\t" + year;
+    return title + "\t" + year;
   }
 }

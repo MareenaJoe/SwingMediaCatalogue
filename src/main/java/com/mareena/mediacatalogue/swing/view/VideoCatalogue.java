@@ -111,6 +111,7 @@ public class VideoCatalogue extends javax.swing.JFrame {
     jLabel1.setForeground(new java.awt.Color(236, 240, 241));
     jLabel1.setText("User Profile: ");
 
+    //jlist set
     jList1.setModel(videoCatalogueModel);
     jList1.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {

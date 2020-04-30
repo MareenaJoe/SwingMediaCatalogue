@@ -13,13 +13,17 @@ public class Film extends Media {
       String description,
       People directorObj,
       Set<Genre> genreSet,
-      Set<People> castSet) {
+      Set<People> castSet,
+      Set<Integer> genreIntSet,
+      Set<Integer> castIntSet) {
     this.title = title;
     this.year = yearInt;
     this.description = description;
     this.mediaCreator = directorObj;
-    this.genres = genreSet;
-    this.actors = castSet;
+    genres.addAll(genreSet);
+    actors.addAll(castSet);
+    genre = genreIntSet;
+    cast = castIntSet;
   }
 
   public Film() {}
