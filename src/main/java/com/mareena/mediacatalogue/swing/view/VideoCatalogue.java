@@ -46,7 +46,6 @@ public class VideoCatalogue extends javax.swing.JFrame {
     jScrollPane2 = new javax.swing.JScrollPane();
     jList1 = new javax.swing.JList<>();
     jTextField1 = new javax.swing.JTextField();
-    jTextField1.setText(videoCatalogueModel.getCurrentUser().getName());
 
     menu1.setLabel("File");
     menuBar1.add(menu1);
@@ -89,6 +88,11 @@ public class VideoCatalogue extends javax.swing.JFrame {
     });
 
     jButton2.setText("Add New");
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
 
     jButton3.setText("List by Year");
     jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +216,10 @@ public class VideoCatalogue extends javax.swing.JFrame {
     videoCatalogueModel.getVideoCatalogueController().actionEnableLIstByGenre();
   }//GEN-LAST:event_jButton4ActionPerformed
 
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    videoCatalogueModel.getVideoCatalogueController().actionEnableAddMediaItem();
+  }//GEN-LAST:event_jButton2ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton2;
@@ -229,6 +237,7 @@ public class VideoCatalogue extends javax.swing.JFrame {
   private java.awt.MenuBar menuBar1;
 
   public void reload() {
+    videoCatalogueModel.setUsersMediaList();
     jList1.updateUI();
     jTextField1.setText(videoCatalogueModel.getCurrentUser().getName());
   }

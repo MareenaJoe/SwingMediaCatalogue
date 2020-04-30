@@ -45,7 +45,11 @@ public final class VideoCatalogueModel extends AbstractListModel {
     setUsersMediaList();
   }
 
-  synchronized void setUsersMediaList() {
+  /**
+   * Used to create the model list. This method is called when ever model needs to be updated. (eg
+   * added a new media title in state model)
+   */
+  public synchronized void setUsersMediaList() {
     mediaCatalogue.getFilms().stream()
         .filter(film -> film.getGenre().contains(currentUser.getPreferredGenre()))
         .forEach(item -> mediaList.add(item));

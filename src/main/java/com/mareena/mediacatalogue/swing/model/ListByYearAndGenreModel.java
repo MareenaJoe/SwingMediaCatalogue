@@ -26,7 +26,7 @@ public class ListByYearAndGenreModel {
     Map<Integer, List<Media>> mediaMap = new HashMap<>();
     //    mediaCatalogue.getFilms().forEach(film -> processItem(film, mediaMap));
     for (Film film : mediaCatalogue.getFilms()) {
-      // mediaList, alist for storing films and tvseries
+      // mediaList, a list for storing films and tvseries
       List<Media> mediaList = mediaMap.get(film.getYear());
       if (mediaList == null) {
         List<Media> filmList = new ArrayList<>();
@@ -37,11 +37,13 @@ public class ListByYearAndGenreModel {
       }
     }
     for (TVSeries tvSeries : mediaCatalogue.getTvseries()) {
+      System.out.println("lsyngm mediaCatalogue.getTvseries:" + tvSeries.getYear());
       List<Media> mediaList = mediaMap.get(tvSeries.getYear());
       if (mediaList == null) {
         List<Media> filmList = new ArrayList<>();
         filmList.add(tvSeries);
         mediaMap.put(tvSeries.getYear(), filmList);
+        System.out.println("lsyngm map.get(year):" + mediaMap.get(tvSeries.getYear()));
       } else {
         mediaList.add(tvSeries);
       }
@@ -97,6 +99,7 @@ public class ListByYearAndGenreModel {
               + "\n"
               + "\n";
     }
+    System.out.println("List by genre:" + finalString);
     return finalString;
   }
 }

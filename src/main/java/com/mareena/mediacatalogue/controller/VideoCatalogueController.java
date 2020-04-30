@@ -20,7 +20,7 @@ public final class VideoCatalogueController {
   VideoCatalogue videoCatalogueView;
 
   ItemMediaView viewMediaView;
-  AddItemView addItemView;
+  AddItem addItemView;
   SelectUserView selectUserView;
   ListByYear listByYear;
   ListByGenre listByGenre;
@@ -49,6 +49,14 @@ public final class VideoCatalogueController {
     viewMediaView.pack();
     viewMediaView.setLocationRelativeTo(null);
     viewMediaView.setVisible(false);
+
+    this.addItemView = new AddItem(new BaseModel(this));
+    // set the jframe size and location, and make it visible
+    addItemView.setPreferredSize(new Dimension(450, 550));
+    addItemView.setTitle("Add Media With Details");
+    addItemView.pack();
+    addItemView.setLocationRelativeTo(null);
+    addItemView.setVisible(false);
 
     this.selectUserView = new SelectUserView(new BaseModel(this));
     // set the jframe size and location, and make it visible
@@ -93,6 +101,10 @@ public final class VideoCatalogueController {
     viewMediaView.setVisible(false);
   }
 
+  public void actionEnableAddMediaItem() {
+    addItemView.setVisible(true);
+  }
+
   public void actionEnableSelectUsers() {
     selectUserView.setVisible(true);
   }
@@ -120,5 +132,16 @@ public final class VideoCatalogueController {
 
   public void actionEnableLIstByGenre() {
     listByGenre.setVisible(true);
+  }
+
+  public void actionAddMediaItemDisable() {
+    addItemView.setVisible(false);
+  }
+
+  /** inform all application view of updated media catalogue */
+  public void actionAddNewMedia() {
+    listByGenre.reload();
+    listByYear.reload();
+    videoCatalogueView.reload();
   }
 }

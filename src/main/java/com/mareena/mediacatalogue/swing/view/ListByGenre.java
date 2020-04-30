@@ -49,7 +49,7 @@ public class ListByGenre extends javax.swing.JFrame {
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addGap(0, 500, Short.MAX_VALUE)
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -57,7 +57,7 @@ public class ListByGenre extends javax.swing.JFrame {
     );
 
     getContentPane().add(jPanel1);
-    jPanel1.setBounds(0, 0, 0, 0);
+    jPanel1.setBounds(0, 0, 500, 56);
 
     jTextArea1.setColumns(20);
     jTextArea1.setRows(5);
@@ -68,18 +68,20 @@ public class ListByGenre extends javax.swing.JFrame {
     jPanel2Layout.setHorizontalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel2Layout.createSequentialGroup()
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 11, Short.MAX_VALUE))
+        .addGap(46, 46, 46)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(66, Short.MAX_VALUE))
     );
     jPanel2Layout.setVerticalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel2Layout.createSequentialGroup()
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-        .addContainerGap())
+        .addGap(21, 21, 21)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(18, Short.MAX_VALUE))
     );
 
     getContentPane().add(jPanel2);
-    jPanel2.setBounds(20, 60, 460, 380);
+    jPanel2.setBounds(0, 60, 500, 390);
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -89,5 +91,10 @@ public class ListByGenre extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea jTextArea1;
+
+  public void reload() {
+    setData();
+    jTextArea1.updateUI();
+  }
   // End of variables declaration//GEN-END:variables
 }

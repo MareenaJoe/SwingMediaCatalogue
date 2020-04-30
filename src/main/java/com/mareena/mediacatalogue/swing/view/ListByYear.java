@@ -89,5 +89,10 @@ public class ListByYear extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea jTextArea1;
+
+  public void reload() {
+    setData();
+    jTextArea1.updateUI();
+  }
   // End of variables declaration//GEN-END:variables
 }

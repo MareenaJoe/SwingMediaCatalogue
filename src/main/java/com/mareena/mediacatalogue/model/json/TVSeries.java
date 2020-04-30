@@ -1,13 +1,31 @@
 package com.mareena.mediacatalogue.model.json;
 
+import java.util.Set;
+
 // @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "tid",scope
 // = People.class)
 public class TVSeries extends Media {
 
+  public static int MAX_ID;
   protected int creator;
   private int tid;
 
   public TVSeries() {}
+
+  public TVSeries(
+      String title,
+      Integer yearInt,
+      String description,
+      People directorObj,
+      Set<Genre> genreSet,
+      Set<People> castSet) {
+    this.title = title;
+    this.year = yearInt;
+    this.description = description;
+    this.mediaCreator = directorObj;
+    this.genres = genreSet;
+    this.actors = castSet;
+  }
 
   public int getTid() {
     return tid;
@@ -15,6 +33,14 @@ public class TVSeries extends Media {
 
   public void setTid(int tid) {
     this.tid = tid;
+    if (tid > MAX_ID) {
+      MAX_ID = tid;
+    }
+  }
+
+  int getNextID() {
+    MAX_ID += 1;
+    return MAX_ID;
   }
 
   public int getCreator() {
