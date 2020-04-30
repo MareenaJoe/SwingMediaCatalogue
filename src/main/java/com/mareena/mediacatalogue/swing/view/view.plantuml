@@ -1,0 +1,196 @@
+@startuml
+
+title __VIEW's Class Diagram__\n
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.AddItem {
+            ~ yearArr : String[]
+            - castTextArea : JTextArea
+            - descriptionTextArea : JTextArea
+            - directorTextArea : JTextField
+            - genreTextArea : JTextArea
+            - jLabel1 : JLabel
+            - jLabel2 : JLabel
+            - jLabel3 : JLabel
+            - jLabel4 : JLabel
+            - jLabel5 : JLabel
+            - jLabel6 : JLabel
+            - jLabel7 : JLabel
+            - jLabel8 : JLabel
+            - jPanel2 : JPanel
+            - jPanel3 : JPanel
+            - jScrollPane1 : JScrollPane
+            - jScrollPane2 : JScrollPane
+            - jScrollPane3 : JScrollPane
+            - saveButton : JButton
+            - titleTextField : JTextField
+            - tvSeriesCheckBox : Checkbox
+            - yearCombo : JComboBox<String>
+            + AddItem()
+            - initComponents()
+            - saveButtonActionPerformed()
+            - titleTextFieldActionPerformed()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ItemMediaView {
+            - backButton : JButton
+            - castTextArea : JTextArea
+            - descriptionTextArea : JTextArea
+            - directorTextField : JTextField
+            - genreTextArea : JTextArea
+            - jLabel1 : JLabel
+            - jLabel2 : JLabel
+            - jLabel3 : JLabel
+            - jLabel4 : JLabel
+            - jLabel5 : JLabel
+            - jLabel6 : JLabel
+            - jLabel7 : JLabel
+            - jPanel2 : JPanel
+            - jPanel3 : JPanel
+            - jScrollPane1 : JScrollPane
+            - jScrollPane2 : JScrollPane
+            - jScrollPane3 : JScrollPane
+            - titleText : JTextField
+            - yearTextField : JTextField
+            + ItemMediaView()
+            + setMedia()
+            - backButtonMouseClicked()
+            - directorTextFieldActionPerformed()
+            - initComponents()
+            - setTextFields()
+            - titleTextActionPerformed()
+            - yearTextFieldActionPerformed()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ListByGenre {
+            - jPanel1 : JPanel
+            - jPanel2 : JPanel
+            - jScrollPane1 : JScrollPane
+            - jTextArea1 : JTextArea
+            + ListByGenre()
+            + reload()
+            - initComponents()
+            - setData()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ListByYear {
+            - jPanel1 : JPanel
+            - jPanel2 : JPanel
+            - jScrollPane1 : JScrollPane
+            - jTextArea1 : JTextArea
+            + ListByYear()
+            + reload()
+            - initComponents()
+            - setData()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.SelectUserView {
+            - jButton1 : JButton
+            - jButton2 : JButton
+            - jButton3 : JButton
+            - jButton4 : JButton
+            - jButton5 : JButton
+            - jLabel1 : JLabel
+            - jPanel3 : JPanel
+            - jPanel4 : JPanel
+            - jPanel5 : JPanel
+            - jPanel6 : JPanel
+            - jPanel7 : JPanel
+            + SelectUserView()
+            - initComponents()
+            - jButton1ActionPerformed()
+            - jButton2ActionPerformed()
+            - jButton3ActionPerformed()
+            - jButton4ActionPerformed()
+            - jButton5ActionPerformed()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.VideoCatalogue {
+            - jButton1 : JButton
+            - jButton2 : JButton
+            - jButton3 : JButton
+            - jButton4 : JButton
+            - jLabel1 : JLabel
+            - jLabel17 : JLabel
+            - jList1 : JList<String>
+            - jPanel1 : JPanel
+            - jPanel2 : JPanel
+            - jScrollPane2 : JScrollPane
+            - jTextField1 : JTextField
+            - menu1 : Menu
+            - menu2 : Menu
+            - menuBar1 : MenuBar
+            + VideoCatalogue()
+            + reload()
+            - initComponents()
+            - jButton1ActionPerformed()
+            - jButton2ActionPerformed()
+            - jButton3ActionPerformed()
+            - jButton4ActionPerformed()
+            - jList1MouseClicked()
+            - jTextField1ActionPerformed()
+        }
+      }
+    }
+  }
+  
+
+  com.mareena.mediacatalogue.swing.view.AddItem -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.AddItem o-- com.mareena.mediacatalogue.swing.model.BaseModel : baseModel
+  com.mareena.mediacatalogue.swing.view.ItemMediaView -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ItemMediaView o-- com.mareena.mediacatalogue.swing.model.MediaModel : mediaModel
+  com.mareena.mediacatalogue.swing.view.ListByGenre -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ListByGenre o-- com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel : listByGenreModel
+  com.mareena.mediacatalogue.swing.view.ListByYear -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ListByYear o-- com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel : listByYearModel
+  com.mareena.mediacatalogue.swing.view.SelectUserView -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.SelectUserView o-- com.mareena.mediacatalogue.swing.model.BaseModel : baseModel
+  com.mareena.mediacatalogue.swing.view.VideoCatalogue -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.VideoCatalogue o-- com.mareena.mediacatalogue.swing.model.VideoCatalogueModel : videoCatalogueModel
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

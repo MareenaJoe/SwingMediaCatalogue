@@ -1,0 +1,252 @@
+@startuml
+
+title __MEDIACATALOGUE's Class Diagram__\n
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      class com.mareena.mediacatalogue.AppMain {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      class com.mareena.mediacatalogue.MediaCatalogueStateModel {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      class com.mareena.mediacatalogue.MediaFactory {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace controller {
+        class com.mareena.mediacatalogue.controller.VideoCatalogueController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.Film {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.Genre {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        abstract class com.mareena.mediacatalogue.model.json.Media {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.MediaCatalogue {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.People {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.Profile {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace model.json {
+        class com.mareena.mediacatalogue.model.json.TVSeries {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.model {
+        class com.mareena.mediacatalogue.swing.model.BaseModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.model {
+        class com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.model {
+        class com.mareena.mediacatalogue.swing.model.MediaModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.model {
+        class com.mareena.mediacatalogue.swing.model.VideoCatalogueModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.AddItem {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ItemMediaView {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ListByGenre {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.ListByYear {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.SelectUserView {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.mareena.mediacatalogue {
+      namespace swing.view {
+        class com.mareena.mediacatalogue.swing.view.VideoCatalogue {
+        }
+      }
+    }
+  }
+  
+
+  com.mareena.mediacatalogue.MediaCatalogueStateModel o-- com.mareena.mediacatalogue.model.json.MediaCatalogue : mediaCatalogue
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.AddItem : addItemView
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.ListByGenre : listByGenre
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.ListByYear : listByYear
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.MediaCatalogueStateModel : mediaCatalogueStateModel
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.SelectUserView : selectUserView
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.model.VideoCatalogueModel : videoCatalogueModel
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.VideoCatalogue : videoCatalogueView
+  com.mareena.mediacatalogue.controller.VideoCatalogueController o-- com.mareena.mediacatalogue.swing.view.ItemMediaView : viewMediaView
+  com.mareena.mediacatalogue.model.json.Film -up-|> com.mareena.mediacatalogue.model.json.Media
+  com.mareena.mediacatalogue.model.json.Media .up.|> java.lang.Comparable
+  com.mareena.mediacatalogue.model.json.Media o-- com.mareena.mediacatalogue.model.json.People : mediaCreator
+  com.mareena.mediacatalogue.model.json.TVSeries -up-|> com.mareena.mediacatalogue.model.json.Media
+  com.mareena.mediacatalogue.swing.model.BaseModel o-- com.mareena.mediacatalogue.controller.VideoCatalogueController : videoCatalogueController
+  com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel o-- com.mareena.mediacatalogue.model.json.MediaCatalogue : mediaCatalogue
+  com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel o-- com.mareena.mediacatalogue.controller.VideoCatalogueController : videoCatalogueController
+  com.mareena.mediacatalogue.swing.model.MediaModel o-- com.mareena.mediacatalogue.model.json.Media : media
+  com.mareena.mediacatalogue.swing.model.MediaModel o-- com.mareena.mediacatalogue.controller.VideoCatalogueController : videoCatalogueController
+  com.mareena.mediacatalogue.swing.model.VideoCatalogueModel -up-|> javax.swing.AbstractListModel
+  com.mareena.mediacatalogue.swing.model.VideoCatalogueModel o-- com.mareena.mediacatalogue.model.json.Profile : currentUser
+  com.mareena.mediacatalogue.swing.model.VideoCatalogueModel o-- com.mareena.mediacatalogue.model.json.MediaCatalogue : mediaCatalogue
+  com.mareena.mediacatalogue.swing.model.VideoCatalogueModel o-- com.mareena.mediacatalogue.controller.VideoCatalogueController : videoCatalogueController
+  com.mareena.mediacatalogue.swing.view.AddItem -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.AddItem o-- com.mareena.mediacatalogue.swing.model.BaseModel : baseModel
+  com.mareena.mediacatalogue.swing.view.ItemMediaView -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ItemMediaView o-- com.mareena.mediacatalogue.swing.model.MediaModel : mediaModel
+  com.mareena.mediacatalogue.swing.view.ListByGenre -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ListByGenre o-- com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel : listByGenreModel
+  com.mareena.mediacatalogue.swing.view.ListByYear -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.ListByYear o-- com.mareena.mediacatalogue.swing.model.ListByYearAndGenreModel : listByYearModel
+  com.mareena.mediacatalogue.swing.view.SelectUserView -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.SelectUserView o-- com.mareena.mediacatalogue.swing.model.BaseModel : baseModel
+  com.mareena.mediacatalogue.swing.view.VideoCatalogue -up-|> javax.swing.JFrame
+  com.mareena.mediacatalogue.swing.view.VideoCatalogue o-- com.mareena.mediacatalogue.swing.model.VideoCatalogueModel : videoCatalogueModel
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

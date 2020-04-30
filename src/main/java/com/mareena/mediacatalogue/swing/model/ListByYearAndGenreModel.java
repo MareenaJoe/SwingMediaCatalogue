@@ -21,7 +21,6 @@ public class ListByYearAndGenreModel {
 
   public String getMediaByYear() {
     Map<Integer, List<Media>> mediaMap = new TreeMap<>();
-    //    mediaCatalogue.getFilms().forEach(film -> processItem(film, mediaMap));
     for (Film film : mediaCatalogue.getFilms()) {
       // mediaList, a list for storing films and tvseries
       List<Media> mediaList = mediaMap.get(film.getYear());
